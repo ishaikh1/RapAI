@@ -222,7 +222,6 @@ def vectors_into_song(vectors, generated_lyrics, rhyme_list):
 		try:
 			score = 1.0 - (abs((float(desired_syllables) - float(syllables))) + abs((float(desired_rhyme) - float(rhyme)))) - penalty
 		except:
-			print 'error'
 			return 0
 		return score
 
