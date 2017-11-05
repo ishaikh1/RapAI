@@ -14,7 +14,9 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 @ask.launch
 def freestyle():
-    rap = render_template('twothousand')
+    with open('generated_lyrics/2000-2009Gen.txt', 'r') as generated:
+        rap = generated.read().replace('\n', ' ')
+    print(rap)
     return statement(rap)
 
 @ask.intent("UselessIntent")

@@ -310,4 +310,4 @@ def main(depth, train_mode):
 			f.write("\n")
 
 
-main(depth, train_mode)
+#main(depth, train_mode)

@@ -4,7 +4,6 @@ from random import randint
 from flask import Flask, render_template
 from flask_ask import Ask, statement, question, session
 
-
 app = Flask(__name__)
 ask = Ask(app, "/")
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
@@ -12,7 +11,9 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 @ask.launch
 def freestyle():
-    rap = render_template('modern')
+    with open('generated_lyrics/2010-2017Gen.txt', 'r') as generated:
+        rap = generated.read().replace('\n', ' ')
+    print(rap)
     return statement(rap)
 
 @ask.intent("UselessIntent")

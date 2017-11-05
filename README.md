@@ -1,261 +1,68 @@
-# Rapping-neural-network
-This is a generative art project I made for my high school's programming club - which ~I'm the president/founder of~ I was the president/founder of until I graduated the other month.
-
-It's a neural network that has been trained on Kanye West's discography, and can use any lyrics you feed it and write a new song *word by word* that rhymes and has a flow (to an extent).
-
-Quartz did a really nice profile on me and the program here; https://qz.com/920091/a-west-virginia-teen-taught-himself-how-to-build-a-rapping-ai-using-kanye-west-lyrics/
-
-# Let's hear something it made
-Okay... Here's a song it wrote *word by word* using kanye's discography - excuse the vulgarities, the neural network wrote it and not me.
-https://soundcloud.com/rapping_neural_network/networks-with-attitude
-
-# Lyrics to above song
-<details>
-  <summary>Click to expand</summary>
-
-Bust a playa with the kids I never had
-
-All his time, all he had, all he had, all he had
-
-Most you rappers don't even stop to get the most press kit
-
-Playas is jealous cause we got the whole city lit
-
-But without it I'd be worried if they playing that bullshit
-
-You wanna complain about the nights even wilder
-
-I swear to God I hope you have got to hear
-
-I'll touch every curve of your favorite author
-
-No more wasting time, you can't roam without Caesar
-
-Back when Gucci was the best summer ever
-
-Before Cam got the hundred with the peer pressure
-
-She walking around looking like Herve Leger
-
-So next time I'm in between but way more fresher
-
-And they say you never know, never never NEVER
-
-...
-
-You the number one I'mma beat my brother
-
-And I know a sign when I heard it's the magic hour
-
-Get Olga Kurylenko, tell her to do better
-
-That know we get them hammers, go on, call the lawyer
-
-
-But still supported me when I get richer
-
-This my first pair of shoes, I made the Bulls play better
-
-Or use my arrogance as a wholesaler
-
-Prince Williams ain't do it can't be your damn liar
-
-You say I dress white, but my broad way thicker
-
-If I be Don C, we got that, that thing clear
-
-I dropped out of your body like a wrestler
-
-I can't believe I'm back to a cold killer
-
-Lady Eloise I need another lover
-
-He loved Jesus when he off the power
-
-So I pour the potion, so we gone dress whiter
-
-Old folks talking bout Linda, from last September
-
-Might spend 50 racks on my life like a fucking loser
-
-...
-
-He don't even stop to get this difficult
-
-She told me that I stayed at home with my own vault
-
-She's so precious with the space for the safe belt
-
-Girl he had the strangest feeling lately
-
-Fuck you playa I know it's especially
-
-But let some black people to think logically
-
-Fire Marshall said I could give you this feeling
-
-And wrote hooks about slaves that the youth is missing
-
-I know this part right here, history in the ring
-
-Well I guess she was messin wit me when I'm cumming
-
-I'm way better than some head on a chain gang
-
-On a scale of this, and now you doing your thang
-
-Y'all I know you're living your life so exciting
-
-Started a little blog just to say nothing
-
-I'mma need a fix, girl you was celebrating
-
-Mayonnaise colored Benz I get my engine revving
-
-And my chick in that old lady on Boomerang
-
-Wifey gonna kill me, I do a gangbang
-
-I put an angel in your life so exciting
-
-Right when I do it right if you was celebrating
-
-I was in Benzes, I was still at Burger King
-
-It feel like this but playas don't know what you're drinking
-
-Really Doe told you come on homie they wilding
-
-I swear this right here, feel free to sing along
-
-Shoulda known that was gonna come as it's good I'm young
-
-...
-
-These playas read the pimp manual, but I just want your girl you was clubbin'
-
-First I spin around and vomit, then I made it from the day you just pretendin'
-
-But I bet you they respect the name Kanye from the heart, y'all all frontin'
-
-We in the same thing like a fat trainer takin a bite or somethin
-
-Abbey Lee too, I'm a jerk, you need that happy beginnin', middle and endin'
-
-That mean I forgot better shit than you ever heard about all this name callin'
-
-Cause I can never be as laid back as this flow end, I'mma let Mos begin
-
-And I bet you they respect the name Kanye from the heart, y'all all frontin'
-
-...
-
-My mama used to stay recession free
-
-All my friends says implants is a beat from Ye
-
-I want is what I do, act more stupidly
-
-With no response make you wait longer than A.C.
-
-Loud as a shorty I looked up to this degree
-
-Young Walt Disney, I'ma tell you once ting
-
-Straight to jail, yo, in a Bentley shining
-
-Why you trying to make it just ring and ring
-
-Now why would I listen to T-Pain and sing
-
-Everything I throw them all laughing
-
-So glad I ain't gotta borrow nothing
-
-So I promised her everything
-
-I've been waiting on this rocket, Yao Ming
-
-I don't drink the drama that your dude bring
-
-Kanye West is the making of a romantic
-
-Play strings for the World's game, this is tragic
-
-...and this is the making of a romantic
-
-I done wore designers I won't get specific
-
-The layers to my roots, I'm like a paraplegic
-
-Come on, let's take a lot more than the music
-
-I mean, after all the way we was magic
-
-...
-
-</details>
-
-## Setup
-
-Install (with python 2.x)
-
-    pip install -U -r requirements.txt 
-
-## Usage
-
-### Data preperation
-**If you'd like to use Kanye's lyrics - skip this section**
-`Lyrics.txt` comes with Kanye's entire discography in it. You can either use this, or fill it with other lyrics.
-
-Guide to using your own lyrics with `lyrics.txt`
-* Avoid including things like "[bridge]" or "[intro]" 
-
-* Seperate each line by a newline
-
-* Avoid non alphanumeric characters (besides basic punctuation)
-
-* You don't have to retype everything - just copy and paste from some lyrics website
-
-### Training
-**Skip this part if you are using the default kanye lines**
-
-* In `model.py`, change the variable `artist` to the name of the new artist you've used in `lyrics.txt`
-
-* In `model.py`, change the variable `train_mode` to `True`
-
-* Run the program with `python model.py`, and allow training to finish.
-
-### Generating raps
-
-* In `model.py`, if you've trained a new network, the variable `train_mode` will be `True`, set this back to `False`
-
-* Run the program with `python model.py`
-
-* The rap will be written to the output of your terminal, and also to a file called `neural_rap.txt`
-
-### Performing raps
-
-* speech.py will "rap" the generated songs with a text to speech over a generic rap beat (`beat.mp3`), just run `python speech.py`
-
-## How it works
-
-Alright, so basically a markov chain will look at the lyrics you entered and generate new lines. Then, it feeds this to a recurrent neural net that will generate a sequence of tuples in the format of 
-
-    (desired rhyme, desired count of syllables)
-
-The program will then sift through the lines the markov chain generated, and match the lines to their corresponding tuples. The result is the rap.
-
-# Future goals:
-
-1. Use lyrebird.ai to have it rap in Kanye's voice... I'll probably have to hire a Kanye voice impersonator to supply me with 5 minutes of audio to train the net with though... Either that or jailbreak an old iPod and use it to do text to speech with Siri's voice.
-
-
-2. Bring back the seperate 'verses' and appropriate pauses that the first version had.
-
-
-3. Generative rap beats that it can rap over.
-
-
-
-Once I get the lyrebird.ai thing working where it can rap and imitate someone's voice, I really want to do some type of 'album' where there's a separate track on it for each really popular dead rapper (The 90's had some really good ones, Notorious B.I.G., Big L, etc.) - where each track would have the network rapping with lyrics / flow in the style of the said rapper, and imitating their voice with lyrebird's network (admit it, the current text to speech I have is pretty trash). Kind of like an AI resurrection of dead rappers...
+# The Notorious A.lexa (A Dot Lexa)
+
+A.lexa is going to be the new number one in hip-hop charts with her freestyle! This neural network is trained to rap in three different styles depending on the time period, and the best, it is all voiced by Amazon's Alexa.
+
+## Okay, but how does it work?
+Well, as said before, this is a neural network. More specifically, it is a recurrent neural network that use Markov chains to analyze and generate lines. The neural network then generate tuples with the desired rhyme and number of syllables. After that it goes through the lines generated by the Markov chains and match them to the tuples.
+
+In our case we used three sets of inputs for training the network. That is, we used rap lyrics from 1990 to 1999, from 2000 to 2009 and from 2010 to 2017. After we have the rap, it is used as output in an Alexa skill, so she will rap the generated lyrics to us.
+
+## Sounds good, how do I implement it?
+Before going straight to the fun part, you need a setup.
+There is a file called *requirements.txt* where you will find all the things you need to install in order to get this running.
+
+### Collecting Data
+A.lexa neural network accepts any types of lyrics that you would want to generate, so be creative!
+The only requirements are:
+- Must be one file with all the lyrics
+- Have only the lyrics, do not include "[intro]" or "[bridge]" aspects
+- Last, avoid alphanumeric characters that aren't basic punctuation (. , ! ?)
+
+### Training the network
+The network training is done by *model.py* as a base. The changes made in *model_modern.py*, *model_nineties.py* and *model_two_thousands.py* are just the `artist` and `rap_file`. This is done because we wanted to generate different trainings for the time periods. However, only one file named *model.py* is enough. On this file there are four main variables that need to be set:
+- `train_mode`(line 14): Tells if the file will be run in training mode or no, it is a boolean value. In this case it should be set to `True`.
+In *model.py* there are four main fields that are important to change:
+- `artist`(line 15): Will be the name of the *.rap* file, which is the result of the training of the neural.
+- `rap_file`(line 16): Is the file in which the rap will be written into.
+- `text_file`(line 289): It is where the program will get the lyrics to be trained or generated.
+
+There are other variables at the begging that can be changed for program convenience and customization:
+- `depth`: Changes the depth of the network
+- `maxsyllables`: Maximum number of syllabus per line
+
+Now that you have customized your program, run `python model.py` and let it work its magic.
+
+### After training
+Now you have a fully trained neural model! You can set the value of `train_mode` back to `False` if you don't wish to train any other models.
+
+Now, you can see that two files were generated in the process, one ending in *.rap* and another ending in *.rhymes*. The first one is a saved network from previous training, and is used to generate lyrics with the set that it was trained for. The second extension is a list of rhymes that were identified on during training, so they can be used for the generated lyrics to rhyme too!
+
+Now, to have your rap generated just run `python model.py`! Just make sure that `train_mode` is set to `False`. You will see the generated lyrics on the terminal, and also written in the value of your `rap_file`.
+
+### Integration with Alexa
+For integration with Alexa, we used *Flask_ask* and *ngrok*, as well as the Alexa Skill Kit from Amazon.
+For the integration we created a Custom Skill for Alexa, so we could input our values and all the commands that would trigger Alexa's rap. The files associated with the Alexa's skill for each time is *alexa_frestyle_time.py*.
+
+To learn how to create a skill, you can access [the tutorials in the Amazon page](https://developer.amazon.com/alexa-skills-kit/tutorials/).
+
+But instead of using a Lambda function from AWS services, we preffered to go with *Flask_ask*, which has [the whole documentation plus tutorials online](https://github.com/johnwheeler/flask-ask).
+
+### Running the Alexa Skill
+**Generating the lyrics**</br>
+* 2010-2017: `$ python model_modern.py`</br>
+* 2000-2009: `$ python model_two_thousands.py`</br>
+* 1990-1999: `$ python model_nineties.py`
+</br></br>
+**Ngrok Server**</br>
+First you will need to setup a ngrok server in a seperate terminal window.</br>
+`./ngrok http 5000`</br></br>
+**Depending on which era freestyle you would like to run:**</br>
+* 2010-2017: `$ python alexa_freestyle_modern.py`</br>
+* 2000-2009: `$ python alexa_freestyle_twothousand.py`</br>
+* 1990-1999: `$ python alexa_freestye_nineties.py`
+</br></br>
+**Speaking into Alexa**</br>
+Once the Alexa is coneected and all setup, all that is required now is to say the specified keyword for the specific era you would like to hear a freestyle from.</br>
+* 2010-2017: 'spit some fire'</br>
+* 2000-2009: 'freestyle two thousand'</br>
+* 1990-1999: 'give me a throwback freestyle'
