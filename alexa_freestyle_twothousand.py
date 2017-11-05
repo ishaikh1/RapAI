@@ -4,6 +4,8 @@ from random import randint
 from flask import Flask, render_template
 from flask_ask import Ask, statement, question, session
 
+from model import *
+
 
 app = Flask(__name__)
 ask = Ask(app, "/")
