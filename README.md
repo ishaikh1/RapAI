@@ -19,7 +19,7 @@ The only requirements are:
 - Last, avoid alphanumeric characters that aren't basic punctuation (. , ! ?)
 
 ### Training the network
-The neural network is based off the one developed by robbiebarrat. Here is the link to his original repo: [rapping neural network (https://github.com/robbiebarrat/rapping-neural-network)].</br>The network training is done by *model.py* as a base. The changes made in *model_modern.py*, *model_nineties.py* and *model_two_thousands.py* are just the `artist` and `rap_file`. This is done because we wanted to generate different trainings for the time periods. However, only one file named *model.py* is enough. On this file there are four main variables that need to be set:
+The neural network is based off the one developed by robbiebarrat. Here is the link to his original repo: [rapping neural network](https://github.com/robbiebarrat/rapping-neural-network).</br>The network training is done by *model.py* as a base. The changes made in *model_modern.py*, *model_nineties.py* and *model_two_thousands.py* are just the `artist` and `rap_file`. This is done because we wanted to generate different trainings for the time periods. However, only one file named *model.py* is enough. On this file there are four main variables that need to be set:
 - `train_mode`(line 14): Tells if the file will be run in training mode or no, it is a boolean value. In this case it should be set to `True`.
 In *model.py* there are four main fields that are important to change:
 - `artist`(line 15): Will be the name of the *.rap* file, which is the result of the training of the neural.
