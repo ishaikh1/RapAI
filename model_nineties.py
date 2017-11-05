@@ -11,7 +11,7 @@ from keras.layers.core import Dense
 
 depth = 4 # depth of the network. changing will require a retrain
 maxsyllables = 16 # maximum syllables per line. Change this freely without retraining the network
-train_mode = True
+train_mode = False
 artist = "1990-1999" # used when saving the trained model
 rap_file = "generated_lyrics/1990-1999Gen.txt" # where the rap is written to
 
