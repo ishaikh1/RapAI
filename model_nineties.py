@@ -27,7 +27,7 @@ def create_network(depth):
 
 	if artist + ".rap" in os.listdir(".") and train_mode == False:
 		model.load_weights(str(artist + ".rap"))
-		print "loading saved network: " + str(artist) + ".rap"
+		print("loading saved network: " + str(artist) + ".rap")
 	return model
 
 def markov(text_file):
@@ -57,11 +57,11 @@ def syllables(line):
 
 def rhymeindex(lyrics):
 	if str(artist) + ".rhymes" in os.listdir(".") and train_mode == False:
-		print "loading saved rhymes from " + str(artist) + ".rhymes"
+		print("loading saved rhymes from " + str(artist) + ".rhymes")
 		return open(str(artist) + ".rhymes", "r").read().split("\n")
 	else:
 		rhyme_master_list = []
-		print "Alright, building the list of all the rhymes"
+		print("Alright, building the list of all the rhymes")
 		for i in lyrics:
 			word = re.sub(r"\W+", '', i.split(" ")[-1]).lower()
 			rhymeslist = pronouncing.rhymes(word)
@@ -84,7 +84,7 @@ def rhymeindex(lyrics):
 		f = open(str(artist) + ".rhymes", "w")
 		f.write("\n".join(rhymelist))
 		f.close()
-		print rhymelist
+		print(rhymelist)
 		return rhymelist
 
 def rhyme(line, rhyme_list):
@@ -192,9 +192,9 @@ def compose_rap(lines, rhyme_list, lyrics_file, model):
 	return rap_vectors
 
 def vectors_into_song(vectors, generated_lyrics, rhyme_list):
-	print "\n\n"
-	print "About to write rap (this could take a moment)..."
-	print "\n\n"
+	print("\n\n")
+	print("About to write rap (this could take a moment)...")
+	print("\n\n")
 	def last_word_compare(rap, line2):
 		penalty = 0
 		for line1 in rap:
@@ -268,7 +268,7 @@ def vectors_into_song(vectors, generated_lyrics, rhyme_list):
 					if item[1] == max_score:
 						maxLines-=1
 						rap.append(item[0]+',')
-						print str(item[0])
+						print(str(item[0]))
 
 						for i in dataset:
 							if item[0] == i[0]:
