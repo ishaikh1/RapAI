@@ -46,3 +46,23 @@ For the integration we created a Custom Skill for Alexa, so we could input our v
 To learn how to create a skill, you can access [the tutorials in the Amazon page](https://developer.amazon.com/alexa-skills-kit/tutorials/).
 
 But instead of using a Lambda function from AWS services, we preffered to go with *Flask_ask*, which has [the whole documentation plus tutorials online](https://github.com/johnwheeler/flask-ask).
+
+### Running the Alexa Skill
+**Generating the lyrics**</br>
+* 2010-2017: `$ python model_modern.py`</br>
+* 2000-2009: `$ python model_two_thousands.py`</br>
+* 1990-1999: `$ python model_nineties.py`
+</br></br>
+**Ngrok Server**</br>
+First you will need to setup a ngrok server in a seperate terminal window.</br>
+`./ngrok http 5000`</br></br>
+**Depending on which era freestyle you would like to run:**</br>
+* 2010-2017: `$ python alexa_freestyle_modern.py`</br>
+* 2000-2009: `$ python alexa_freestyle_twothousand.py`</br>
+* 1990-1999: `$ python alexa_freestye_nineties.py`
+</br></br>
+**Speaking into Alexa**</br>
+Once the Alexa is coneected and all setup, all that is required now is to say the specified keyword for the specific era you would like to hear a freestyle from.</br>
+* 2010-2017: 'spit some fire'</br>
+* 2000-2009: 'freestyle two thousand'</br>
+* 1990-1999: 'give me a throwback freestyle'
