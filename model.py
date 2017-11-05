@@ -12,8 +12,8 @@ from keras.layers.core import Dense
 depth = 4 # depth of the network. changing will require a retrain
 maxsyllables = 16 # maximum syllables per line. Change this freely without retraining the network
 train_mode = False
-artist = "all" # used when saving the trained model
-rap_file = "neural_rap.txt" # where the rap is written to
+artist = "1990-1999" # used when saving the trained model
+rap_file = "1990-1999Gen.txt" # where the rap is written to
 
 def create_network(depth):
 	model = Sequential()
@@ -201,15 +201,17 @@ def vectors_into_song(vectors, generated_lyrics, rhyme_list):
 			word1 = line1.split(" ")[-1]
 			word2 = line2.split(" ")[-1]
 
-			while word1[-1] in "?!,. ":
-				word1 = word1[:-1]
+			try:
+				while word1[-1] in "?!,. ":
+					word1 = word1[:-1]
 
-			while word2[-1] in "?!,. ":
-				word2 = word2[:-1]
+				while word2[-1] in "?!,. ":
+					word2 = word2[:-1]
 
-			if word1 == word2:
-				penalty += 0.2
-
+				if word1 == word2:
+					penalty += 0.2
+			except:
+				pass
 		return penalty
 
 	def calculate_score(vector_half, syllables, rhyme, penalty):
@@ -241,36 +243,38 @@ def vectors_into_song(vectors, generated_lyrics, rhyme_list):
 
 
 
-
+	maxLines = 50
 	for vector in vector_halves:
-		scorelist = []
-		for item in dataset:
-			line = item[0]
+		if maxLines > 0:
+			scorelist = []
+			for item in dataset:
+				line = item[0]
 
-			if len(rap) != 0:
-				penalty = last_word_compare(rap, line)
-			else:
-				penalty = 0
-			total_score = calculate_score(vector, item[1], item[2], penalty)
-			score_entry = [line, total_score]
-			scorelist.append(score_entry)
+				if len(rap) != 0:
+					penalty = last_word_compare(rap, line)
+				else:
+					penalty = 0
+				total_score = calculate_score(vector, item[1], item[2], penalty)
+				score_entry = [line, total_score]
+				scorelist.append(score_entry)
 
-		fixed_score_list = []
-		for score in scorelist:
-			fixed_score_list.append(float(score[1]))
+			fixed_score_list = []
+			for score in scorelist:
+				fixed_score_list.append(float(score[1]))
 
-		if fixed_score_list != []:
-			max_score = max(fixed_score_list)
-			for item in scorelist:
-				if item[1] == max_score:
-					rap.append(item[0])
-					print str(item[0])
+			if fixed_score_list != []:
+				max_score = max(fixed_score_list)
+				for item in scorelist:
+					if item[1] == max_score:
+						maxLines-=1
+						rap.append(item[0])
+						print str(item[0])
 
-					for i in dataset:
-						if item[0] == i[0]:
-							dataset.remove(i)
-							break
-					break
+						for i in dataset:
+							if item[0] == i[0]:
+								dataset.remove(i)
+								break
+						break
 	return rap
 
 def train(x_data, y_data, model):
@@ -300,8 +304,10 @@ def main(depth, train_mode):
 		vectors = compose_rap(bars, rhyme_list, text_file, model)
 		rap = vectors_into_song(vectors, bars, rhyme_list)
 		f = open(rap_file, "w")
+		i = 0
 		for bar in rap:
 			f.write(bar)
 			f.write("\n")
+
 
 main(depth, train_mode)
