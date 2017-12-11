@@ -27,7 +27,7 @@ def create_network(depth):
 
 	if artist + ".rap" in os.listdir(".") and train_mode == False:
 		model.load_weights(str(artist + ".rap"))
-		print "loading saved network: " + str(artist) + ".rap"
+		print("loading saved network: " + str(artist) + ".rap")
 	return model
 
 def markov(text_file):

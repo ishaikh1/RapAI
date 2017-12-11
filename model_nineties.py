@@ -243,7 +243,7 @@ def vectors_into_song(vectors, generated_lyrics, rhyme_list):
 
 
 
-	maxLines = 20
+	maxLines = 10
 	for vector in vector_halves:
 		if maxLines > 0:
 			scorelist = []
